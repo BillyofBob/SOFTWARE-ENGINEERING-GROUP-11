@@ -7,9 +7,9 @@
 4. [Contribution Guidelines](#contribution-guidelines)
 
 ## 1. Project Overview
-The Poisonous Plant Identification System is designed to help users identify and differentiate between poisonous and non-poisonous plants. The system uses machine learning algorithms trained on extensive datasets to classify plant images and provide users with accurate information regarding their toxicity.
+The Poisonous Plant Identification System is designed to help users identify and differentiate between poisonous and non-poisonous plants. The Poisonous Plant Identification System's main objective is to identify unsafe plants in order to lower the number of fatalities or injuries as a result of plant poisoning. The system uses machine learning algorithms trained on extensive datasets to classify plant images and provide users with accurate information regarding their toxicity. This approach aims to improve public safety and awareness by giving people a fast and dependable way to identify potentially poisonous plants by utilising machine learning technology.
 
-### Key Features
+### Main Features
 - **Image Classification**: Automatically classify plant images as poisonous or non-poisonous.
 - **Toxicity Information**: Provide detailed toxicity profiles and symptoms associated with poisonous plants.
 - **User-Friendly Interface**: Easy-to-use interface for uploading images and receiving identification results.
@@ -29,62 +29,45 @@ Before you begin, ensure you have the following software installed on your syste
 
 ### Step-by-Step Installation
 
- **Clone the Repository**:
+ **Install Required Libraries**:
+   - Open a terminal or command prompt.
+   - Install TensorFlow: pip install tensorflow
+   - Install OpenCV: pip install opencv-python
+   - Install Flask: pip install flask
+     
+ **Clone the Project Repository**:
    - Open your terminal (or Command Prompt on Windows).
-   - Clone the repository to your local machine using the following command:
+   - Clone the project repository from GitHub or obtain it from the designated source.
      ```bash
      git clone https://github.com/yourusername/poisonous-plant-identification.git
-     ```
-   - Navigate to the project directory:
-     ```bash
-     cd poisonous-plant-identification
-     ```
 
- **Create a Virtual Environment** (optional but recommended):
-   - Create a virtual environment to isolate the project dependencies:
-     ```bash
-     python3 -m venv venv
-     ```
-   - Activate the virtual environment:
-     - On macOS and Linux:
-       ```bash
-       source venv/bin/activate
-       ```
-     - On Windows:
-       ```bash
-       venv\Scripts\activate
-       ```
+ **Setup and Configuration**:
+   - Navigate to the project directory
+   - Modify configuration files as needed (e.g., database settings, model paths).
 
- **Install Dependencies**:
-   - Install the required Python packages using pip:
-     ```bash
-     pip install -r requirements.txt
-     ```
 
- **Set Up the Database** (if applicable):
-   - If your project requires a database setup, follow these steps:
-     - Ensure you have a database server running (e.g., PostgreSQL, MySQL, SQLite).
-     - Update the database configuration in the project settings (e.g., `config.py` or `.env` file).
-     - Run database migrations to create necessary tables:
+ **Set Up the Database**:
+   - Ensure you have the database server running (MySQL)
+   - Update the database configuration in the project settings
+   - Run database migrations to create necessary tables:
        ```bash
        python manage.py migrate
        ```
-
- **Download Pre-trained Models** (if applicable):
-   - If the project uses pre-trained machine learning models, download them and place them in the designated directory. Instructions for this should be provided in the project documentation or a separate `models` directory.
-
- **Start the Application**:
-   - Run the application using the following command:
+ **Start the Desktop Application**:
+   - Run the Desktop application using the following command:
      ```bash
      python app.py
      ```
    - You should see output indicating that the server is running.
+     
+ **Download Dataset and Models** :
+   - Download the existing Poisonous Plants identified dataset
+   - Train the Machine Learning Model using the dataset
 
- **Access the Web Interface**:
-   - Open your web browser and navigate to the following address to access the system:
-     ```
-     http://localhost:5000
-     ```
+ **Download the Mobile Application** :
+   - Download the Mobile Application for users
+   - Create an Account for user
+
 
 ### Troubleshooting
 
@@ -92,62 +75,73 @@ Before you begin, ensure you have the following software installed on your syste
   ```bash
   pip install --upgrade pip
 
-
 ## 3. Usage Guidelines
 
-### Running the System
+### For Users
 
- **Start the Application**:
-- Navigate to the project directory in your terminal.
-- Run the application using the following command:
-     ```bash
-     python app.py
-     ```
-   - This command will start the server, and you should see output indicating that the server is running.
+ **Identify Plants**:
+   - Open the mobile app and navigate to the plant identification feature
+   - Use the camera to take a picture of the plant or select an image from your gallery
+   - Click the "Identify" button
+   - The system will process the image and display the plant’s name and toxicity information
+   - Results will load after 10-20 seconds
+   - Results show the corresponding Poisonous Plants and their details including Toxicity Information. 
 
- **Access the Web Interface**:
-   - Open your web browser and go to the following address:
-     ```
-     http://localhost:5000
-     ```
-   - You will see the main interface of the Poisonous Plant Identification System.
+ **View Plant Information**:
+   - After identifying a plant, the app provides detailed information about the plant, including its common name, scientific name, toxicity level, and safety measures
+   - There is also a gallery of Poisonous Plants identified with user-friendly interactions
+     
+### Experts/Admin
 
-### Uploading Images
+ **Add New Plants**:
+   - Launch the Desktop version of the system
+   - Log in to the admin/experts interface
+   - Navigate to the "Add New Plant" section.
+   - Fill in the required information, such as plant name, scientific name, images, and toxicity details.
+   - Click "Submit" to add the plant to the database.
+   - Admins will verify if submission is from experts or botting
 
- **Navigate to the Upload Section**:
-   - On the web interface, find the section or button labeled "Upload Image" or "Identify Plant".
+ **Train the Model**:
+   - Go to the Machine Learning Section
+   - Select Submit Dataset to train the Machine Learning Algorithm for new plants
+     
+ **Modify System**:
+   - Access the admin interface and navigate to the "Modify System" section.
+   - Update system settings, model configurations, or any other adjustable parameters.
+   - Save the changes to apply updates to the system.
 
- **Select an Image**:
-   - Click the "Choose File" button to open a file selection dialog.
-   - Navigate to the location of the plant image you want to classify on your device.
-   - Select the image file and click "Open".
+ **user Management**:
+   - View, add, or remove users from the system.
+   - Update user roles and permissions as needed.
 
- **Submit the Image**:
-   - After selecting the image, click the "Upload" or "Submit" button.
-   - The system will process the image and provide the classification results.
 
-### Viewing Results
-
- **Classification Results**:
-   - Once the image is processed, the system will display the classification result indicating whether the plant is poisonous or non-poisonous.
-   - The result will be shown on the web interface.
-
- **Detailed Information**:
-   - If the plant is identified as poisonous, additional information will be provided.
-   - This information includes the plant's toxicity profile, symptoms of poisoning, and safety precautions.
-
-### Example Use Case
+### Example Use Case and Screenshots
 
  **Upload an Image**:
    - You have an image of a plant you suspect might be poisonous.
-   - Open the web interface and upload the image following the steps above.
+   - Open the mobile app and upload the image.
+   - ![image](https://github.com/BillyofBob/SOFTWARE-ENGINEERING-GROUP-11/assets/168271245/1b9a1aa9-ad83-4531-a2a6-67f6d57a69ad)
+
 
  **Receive Classification**:
    - The system identifies the plant as poisonous and displays this information.
+   - ![image](https://github.com/BillyofBob/SOFTWARE-ENGINEERING-GROUP-11/assets/168271245/e244aae1-6c0b-4f3c-8e4d-4df340455fb7)
+ 
+ **Plants Catalogue**:
+   - Displays various types of Poisonous Plants
+   - ![image](https://github.com/BillyofBob/SOFTWARE-ENGINEERING-GROUP-11/assets/168271245/4407767b-ca6b-4951-ac1f-6acb43bdfbdb)
 
- **Review Toxicity Information**:
-   - Detailed information about the plant's toxicity, including symptoms and first aid measures, is displayed, helping you understand the potential risks.
+   
+ **Train Model**:
+   - Training the Machine Learning Model
+   - ![image](https://github.com/BillyofBob/SOFTWARE-ENGINEERING-GROUP-11/assets/168271245/a8c67353-44c3-4bdc-92f4-b4580c27d56b)
 
+
+ **User Management**:
+   - Admins able to manage users
+   - ![image](https://github.com/BillyofBob/SOFTWARE-ENGINEERING-GROUP-11/assets/168271245/9c9856b4-e7cd-4f64-9dfc-2717a5257d9a)
+
+   
 ### Additional Features
 
 - **Educational Resources**:
@@ -157,8 +151,9 @@ Before you begin, ensure you have the following software installed on your syste
 - **Feedback and Improvements**:
   - Users can provide feedback on the system's accuracy and suggest improvements.
   - Use the provided contact information to share your feedback.
-
----
+ 
+- **Personal Chats with experets**:
+  - Users can interract and enquiry experts of the matter and seek for advices
 
 
 ## 4. Contribution Guidelines
@@ -167,16 +162,6 @@ Before you begin, ensure you have the following software installed on your syste
 
  **Fork the Repository**:
    - Go to the project's GitHub page and click the "Fork" button at the top-right corner. This will create a copy of the repository in your GitHub account.
-
- **Clone Your Fork**:
-   - Clone the forked repository to your local machine using the following command:
-     ```bash
-     git clone https://github.com/yourusername/poisonous-plant-identification.git
-     ```
-   - Navigate into the project directory:
-     ```bash
-     cd poisonous-plant-identification
-     ```
 
  **Create a Branch**:
    - Create a new branch for your feature or bug fix. Use a descriptive name for your branch:
@@ -227,10 +212,6 @@ To maintain a consistent codebase, please follow these coding standards:
   - Use [PEP 8](https://pep8.org/) as the style guide for Python code.
   - Write clear and concise docstrings for functions and classes.
   - Use meaningful variable and function names.
-
-- **JavaScript** (if applicable):
-  - Follow [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) for JavaScript code.
-  - Ensure code is well-documented with comments where necessary.
 
 ### Testing
 
